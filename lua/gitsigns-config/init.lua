@@ -1,4 +1,10 @@
-require('gitsigns').setup {
+local status_ok, gitsigns = pcall(require, "Gitsigns")
+
+if not status_ok then
+  return
+end
+
+gitsigns.setup {
   on_attach = function(bufnr)
     local function map(mode, lhs, rhs, opts)
         opts = vim.tbl_extend('force', {noremap = true, silent = true}, opts or {})
