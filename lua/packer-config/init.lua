@@ -22,5 +22,6 @@ return require("packer").startup(function(use)
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'onsails/lspkind-nvim'
+    use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
     use "rafamadriz/friendly-snippets"
 end)

@@ -4,6 +4,10 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = ' '
 vim.g.maplocalleader = " "
 
+-- Too dificult to press
+map("n", "gl", "$", opts)
+map("n", "gh", "^", opts)
+
 -- Better window navigation
 map("n", "<C-h>", "<C-w>h", opts)
 map("n", "<C-j>", "<C-w>j", opts)
@@ -24,6 +28,7 @@ map("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 -- Press jk fast to enter
 map("i", "jk", "<ESC>", opts)
 map("i", "jj", "<ESC>", opts)
+map("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -72,7 +77,8 @@ map('n', '<A-c>', ':BufferClose<CR>', opts)
 --                 :BufferCloseBuffersLeft<CR>
 --                 :BufferCloseBuffersRight<CR>
 -- Magic buffer-picking mode
-map('n', '<C-p>', ':BufferPick<CR>', opts)
+-- map('n', '<C-p>', ':BufferPick<CR>', opts)
+
 -- Sort automatically by...
 map('n', '<leader>bb', ':BufferOrderByBufferNumber<CR>', opts)
 map('n', '<leader>bd', ':BufferOrderByDirectory<CR>', opts)
