@@ -18,7 +18,7 @@
   set.splitright = true                      -- force all vertical splits to go to the right of current window
   set.swapfile = false                       -- creates a swapfile
   set.termguicolors = true                   -- set term gui colors (most terminals support this)
-  set.timeoutlen = 100                       -- time to wait for a mapped sequence to complete (in milliseconds)
+  set.timeoutlen = 1500                       -- time to wait for a mapped sequence to complete (in milliseconds)
   set.undofile = true                        -- enable persistent undo
   set.updatetime = 300                       -- faster completion (4000ms default)
   set.writebackup = false                    -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
@@ -27,7 +27,7 @@
   set.tabstop = 2                            -- insert 2 spaces for a tab
   set.cursorline = true                      -- highlight the current line
   set.number = true                          -- set numbered lines
-  set.relativenumber = false                 -- set relative numbered lines
+  set.relativenumber = true                 -- set relative numbered lines
   set.numberwidth = 4                        -- set number column width to 2 {default 4}
   set.signcolumn = "yes"                     -- always show the sign column, otherwise it would shift the text each time
   set.wrap = false                           -- display lines as one long line

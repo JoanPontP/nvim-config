@@ -1,12 +1,16 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = " "
+vim.g.mapleader = " "
+--vim.g.maplocalleader = " "
 
 -- Too dificult to press
 map("n", "gl", "$", opts)
 map("n", "gh", "^", opts)
+
+-- Keep search matches in the middle of the window
+map("n", "n", "nzzzv", opts)
+map("n", "N", "Nzzzv", opts)
 
 -- Better window navigation
 map("n", "<C-h>", "<C-w>h", opts)
@@ -80,11 +84,11 @@ map('n', '<A-c>', ':BufferClose<CR>', opts)
 -- map('n', '<C-p>', ':BufferPick<CR>', opts)
 
 -- Sort automatically by...
-map('n', '<leader>bb', ':BufferOrderByBufferNumber<CR>', opts)
-map('n', '<leader>bd', ':BufferOrderByDirectory<CR>', opts)
-map('n', '<leader>bl', ':BufferOrderByLanguage<CR>', opts)
+--map('n', '<leader>bb', ':BufferOrderByBufferNumber<CR>', opts)
+--map('n', '<leader>bd', ':BufferOrderByDirectory<CR>', opts)
+--map('n', '<leader>bl', ':BufferOrderByLanguage<CR>', opts)
 
 -- Telescope
-map('n', '<leader>ff', ':Telescope find_files<CR>', opts)
-map('n', '<leader>fg', ':Telescope live_grep<CR>', opts)
-map('n', '<leader>fb', ':Telescope buffers<CR>', opts)
+map('n', '<Leader>ff', ':Telescope find_files<CR>', opts)
+map('n', '<Leader>fg', ':Telescope live_grep<CR>', opts)
+map('n', '<Leader>fb', ':Telescope buffers<CR>', opts)
