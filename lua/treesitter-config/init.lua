@@ -20,6 +20,9 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+  indent = {
+    enable = false, -- Really breaks stuff if true
+  },
   refactor = {
     highlight_current_scope = { enable = true },
     smart_rename = {
@@ -40,3 +43,10 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
+
+-- Enable folds (zc and zo) on functions and classes but not by default
+vim.cmd([[
+  set nofoldenable
+  set foldmethod=expr
+  set foldexpr=nvim_treesitter#foldexpr()
+]])

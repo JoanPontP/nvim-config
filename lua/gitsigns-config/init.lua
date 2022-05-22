@@ -1,10 +1,17 @@
-local status_ok, gitsigns = pcall(require, "Gitsigns")
+local status_ok, gitsigns = pcall(require, "gitsigns")
 
 if not status_ok then
   return
 end
 
 gitsigns.setup {
+  current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+  current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = 'eol',
+    delay = 1,
+    ignore_whitespace = true,
+  },
   on_attach = function(bufnr)
     local function map(mode, lhs, rhs, opts)
         opts = vim.tbl_extend('force', {noremap = true, silent = true}, opts or {})

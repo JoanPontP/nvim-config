@@ -21,8 +21,8 @@ map("n", "<C-l>", "<C-w>l", opts)
 -- Resize with arrows
 map("n", "<C-Up>", ":resize -2<CR>", opts)
 map("n", "<C-Down>", ":resize +2<CR>", opts)
-map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+map("n", "<C-Left>", ":vertical resize +2<CR>", opts)
+map("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 -- Move text up and down
 map("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
