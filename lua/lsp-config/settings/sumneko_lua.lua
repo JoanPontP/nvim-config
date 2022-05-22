@@ -5,6 +5,10 @@ return {
 			diagnostics = {
 				globals = { "vim" },
 			},
+      completion= {
+        keywordSnippet="Replace",
+        callSnippet="Replace"
+      },
 			workspace = {
 				library = {
 					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
