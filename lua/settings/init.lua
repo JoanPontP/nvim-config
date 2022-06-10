@@ -40,6 +40,6 @@ set.guifont = "monospace:h17"              -- the font used in graphical neovim 
 vim.cmd[[
 augroup highlight_yank
 autocmd!
-au TextYankPost * silent! lua vim.highlight.on_yank({higroup="DiffAdd", timeout=100})
+au TextYankPost * silent! lua vim.highlight.on_yank({higroup="DiffAdd", timeout=200})
 augroup END
 ]]

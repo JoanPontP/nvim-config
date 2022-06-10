@@ -33,6 +33,9 @@ map("n", "<C-Down>", ":resize +2<CR>", opts)
 map("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
+-- go back to last position
+map("n", "gb", "<C-t>", opts)
+
 -- Move text up and down
 map("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 map("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)

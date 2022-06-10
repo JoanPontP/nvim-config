@@ -43,12 +43,14 @@ cmp.setup {
     format = lspkind.cmp_format({
       mode = 'symbol_text', -- show only symbol annotations
       menu = {
-          buffer = "[Buf]",
-          nvim_lsp = "[Lsp]",
+          nvim_lsp = "[LSP]",
+          buffer = "[Buffer]",
           luasnip = "[Snip]",
           nvim_lua = "[Lua]",
-          latex_symbols = "[Lat]",
-      },
+          treesitter = "[Treesitter]",
+          path = "[Path]",
+          nvim_lsp_signature_help = "[Signature]",
+        },
       maxwidth = 75, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
       -- The function below will be called before any actual modifications from lspkind
@@ -60,9 +62,11 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'treesitter' },
+    { name = 'buffer' },
     { name = 'luasnip' },
     { name = 'path' },
-    { name = 'buffer' },
+    { name = 'nvim_lsp_signature_help' },
   },
 }
 

@@ -6,17 +6,26 @@ end
 local lspconfig = require("lspconfig")
 
 local servers = require("lsp-config.servers")
+-- local lsp_signature = require("lsp_signature")
 
 lsp_installer.setup {
 	ensure_installed = servers
 }
+
+-- lsp_signature.setup {
+--   bind = true,
+--   handler_opts = {
+--     border = "rounded",
+--   },
+-- }
+
 
 for _, server in pairs(servers) do
 	local opts = {
 		on_attach = require("lsp-config.handlers").on_attach,
 		capabilities = require("lsp-config.handlers").capabilities,
 	}
-	local has_custom_opts, server_custom_opts = pcall(require, "lsp-config.settings" .. server)
+	local has_custom_opts, server_custom_opts = pcall(require, "lsp-config.settings." .. server)
 	if has_custom_opts then
 	 	opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
 	end
