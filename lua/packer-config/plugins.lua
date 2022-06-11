@@ -19,7 +19,7 @@ end
 vim.cmd [[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost packer-config.lua source <afile> | PackerSync
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]]
 
@@ -42,8 +42,9 @@ return packer.startup(function(use)
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'Mofiqul/dracula.nvim'
+    use 'EdenEast/nightfox.nvim' 
     use 'kyazdani42/nvim-tree.lua'
-    use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+    use 'windwp/nvim-autopairs' -- Autopairs, integrates with both cmp and treesitter
     use 'kyazdani42/nvim-web-devicons'
     use 'nvim-lualine/lualine.nvim'
     use 'romgrk/barbar.nvim'
@@ -69,6 +70,6 @@ return packer.startup(function(use)
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'folke/lua-dev.nvim'
     use 'onsails/lspkind-nvim'
-    use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-    use "rafamadriz/friendly-snippets"
+    use 'tamago324/nlsp-settings.nvim' -- language server settings defined in json for
+    use 'rafamadriz/friendly-snippets'
 end)

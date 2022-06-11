@@ -1,4 +1,4 @@
-require ("packer-config")
+require ("packer-config.plugins")
 require ("settings")
 require ("mappings")
 require ("colorschemes-config.dracula")
