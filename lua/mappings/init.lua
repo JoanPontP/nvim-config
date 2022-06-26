@@ -13,6 +13,8 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+map("n", "<leader>Ñ", "<cmd>so %<CR><cmd>luafile %<CR>", opts)
+
 -- Too dificult to press
 map("n", "gl", "$", opts)
 map("n", "gh", "^", opts)
@@ -22,10 +24,10 @@ map("n", "n", "nzzzv", opts)
 map("n", "N", "Nzzzv", opts)
 
 -- Better window navigation
-map("n", "<C-h>", "<C-w>h", opts)
-map("n", "<C-j>", "<C-w>j", opts)
-map("n", "<C-k>", "<C-w>k", opts)
-map("n", "<C-l>", "<C-w>l", opts)
+-- map("n", "<C-h>", "<C-w>h", opts)
+-- map("n", "<C-j>", "<C-w>j", opts)
+-- map("n", "<C-k>", "<C-w>k", opts)
+-- map("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 map("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -33,13 +35,8 @@ map("n", "<C-Down>", ":resize +2<CR>", opts)
 map("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
--- go back to last position
-map("n", "gb", "<C-t>", opts)
+-- Remove search highlight when pressing ESC
 map("n", "<ESC>", ":nohl<ESC>", opts)
-
--- Move text up and down
-map("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-map("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -53,40 +50,41 @@ map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
 -- Move text up and down
-map("v", "<A-j>", ":m .+1<CR>==", opts)
-map("v", "<A-k>", ":m .-2<CR>==", opts)
+map("v", "<C-j>", ":m .+1<CR>gv-gv==", opts)
+map("v", "<C-k>", ":m .-2<CR>gv-gv==", opts)
 map("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-map("x", "J", ":move '>+1<CR>gv-gv", opts)
 map("x", "K", ":move '<-2<CR>gv-gv", opts)
-map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-map("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+map("x", "J", ":move '>+1<CR>gv-gv", opts)
 
 -- Plugins
 map('n', '<leader>gf', ':NvimTreeToggle<CR>', opts)
+map('n', '<leader>c', ':NvimTreeFindFile<CR>', opts)
 
 -- barbar mappings
 -- Move to previous/next
-map('n', '<A-,>', ':BufferPrevious<CR>', opts)
-map('n', '<A-.>', ':BufferNext<CR>', opts)
--- Re-order to previous/next
-map('n', '<A-<>', ':BufferMovePrevious<CR>', opts)
-map('n', '<A->>', ' :BufferMoveNext<CR>', opts)
--- Goto buffer in position...
-map('n', '<A-1>', ':BufferGoto 1<CR>', opts)
-map('n', '<A-2>', ':BufferGoto 2<CR>', opts)
-map('n', '<A-3>', ':BufferGoto 3<CR>', opts)
-map('n', '<A-4>', ':BufferGoto 4<CR>', opts)
-map('n', '<A-5>', ':BufferGoto 5<CR>', opts)
-map('n', '<A-6>', ':BufferGoto 6<CR>', opts)
-map('n', '<A-7>', ':BufferGoto 7<CR>', opts)
-map('n', '<A-8>', ':BufferGoto 8<CR>', opts)
-map('n', '<A-9>', ':BufferGoto 9<CR>', opts)
-map('n', '<A-0>', ':BufferLast<CR>', opts)
+map('n', '<TAB>', ':bn<CR>', opts)
+map('n', '<S-TAB>', ':bp<CR>', opts)
+-- Select from bufferlist
+map('n', '<leader>b', ':buffers<CR>:buffer<Space>', opts)
 -- Close buffer
-map('n', '<A-c>', ':BufferClose<CR>', opts)
+map('n', '<C-q>', ':bd<CR>', opts)
+-- Re-order to previous/next
+-- map('n', '<A-<>', ':BufferMovePrevious<CR>', opts)
+-- map('n', '<A->>', ' :BufferMoveNext<CR>', opts)
+-- Goto buffer in position...
+-- map('n', '<A-1>', ':BufferGoto 1<CR>', opts)
+-- map('n', '<A-2>', ':BufferGoto 2<CR>', opts)
+-- map('n', '<A-3>', ':BufferGoto 3<CR>', opts)
+-- map('n', '<A-4>', ':BufferGoto 4<CR>', opts)
+-- map('n', '<A-5>', ':BufferGoto 5<CR>', opts)
+-- map('n', '<A-6>', ':BufferGoto 6<CR>', opts)
+-- map('n', '<A-7>', ':BufferGoto 7<CR>', opts)
+-- map('n', '<A-8>', ':BufferGoto 8<CR>', opts)
+-- map('n', '<A-9>', ':BufferGoto 9<CR>', opts)
+-- map('n', '<A-0>', ':BufferLast<CR>', opts)
 -- Wipeout buffer
 --                 :BufferWipeout<CR>
 -- Close commands

@@ -4,6 +4,8 @@ local lspkind = require('lspkind')
 -- nvim-cmp setup
 local cmp = require('cmp')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local handlers = require('nvim-autopairs.completion.handlers')
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -44,14 +46,14 @@ cmp.setup {
     format = lspkind.cmp_format({
       mode = 'symbol_text', -- show only symbol annotations
       menu = {
-          nvim_lsp = "[LSP]",
-          buffer = "[Buffer]",
-          luasnip = "[Snip]",
-          nvim_lua = "[Lua]",
-          treesitter = "[Treesitter]",
-          path = "[Path]",
-          nvim_lsp_signature_help = "[Signature]",
-        },
+        nvim_lsp = "[LSP]",
+        buffer = "[Buffer]",
+        luasnip = "[Snip]",
+        nvim_lua = "[Lua]",
+        treesitter = "[Treesitter]",
+        path = "[Path]",
+        nvim_lsp_signature_help = "[Signature]",
+      },
       maxwidth = 75, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
       -- The function below will be called before any actual modifications from lspkind
@@ -71,32 +73,63 @@ cmp.setup {
   },
 }
 
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'buffer' },
-    })
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'buffer' },
   })
+})
 
-  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done({
+    filetypes = {
+      -- "*" is a alias to all filetypes
+      ["*"] = {
+        ["("] = {
+          kind = {
+            cmp.lsp.CompletionItemKind.Function,
+            cmp.lsp.CompletionItemKind.Method,
+          },
+          handler = handlers["*"]
+        }
+      },
+      lua = {
+        ["("] = {
+          kind = {
+            cmp.lsp.CompletionItemKind.Function,
+            cmp.lsp.CompletionItemKind.Method
+          },
+          ---@param char string
+          ---@param item item completion
+          ---@param bufnr buffer number
+          handler = function(char, item, bufnr)
+            -- Your handler function. Inpect with print(vim.inspect{char, item, bufnr})
+          end
+        }
+      },
+      -- Disable for tex
+      tex = false
     }
   })
-
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
-
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
-
+)
 -- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
-cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
+-- cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"

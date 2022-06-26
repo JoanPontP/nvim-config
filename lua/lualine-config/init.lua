@@ -3,4 +3,4 @@ require('lualine').setup{
         theme = 'dracula',
         disabled_filetypes = {"NvimTree"},
     }
-}
+  }

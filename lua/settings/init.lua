@@ -35,6 +35,10 @@ set.wrap = false                           -- display lines as one long line
 set.scrolloff = 8                          -- is one of my fav
 set.sidescrolloff = 8
 set.guifont = "monospace:h17"              -- the font used in graphical neovim applications
+set.wildmenu = true
+set.colorcolumn="80"
+set.autoindent=true
+set.autowriteall=true
 
 -- highlight yanked text for 200ms using the "Visual" highlight group
 vim.cmd[[

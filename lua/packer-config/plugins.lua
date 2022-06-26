@@ -47,7 +47,7 @@ return packer.startup(function(use)
     use 'windwp/nvim-autopairs' -- Autopairs, integrates with both cmp and treesitter
     use 'kyazdani42/nvim-web-devicons'
     use 'nvim-lualine/lualine.nvim'
-    use 'romgrk/barbar.nvim'
+    -- use 'romgrk/barbar.nvim'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'JoosepAlviste/nvim-ts-context-commentstring'
