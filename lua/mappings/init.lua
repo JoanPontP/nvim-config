@@ -13,7 +13,7 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-map("n", "<leader>Ñ", "<cmd>so %<CR><cmd>luafile %<CR>", opts)
+map("n", "<leader>Ñ", "<cmd>so $MYVIMRC<CR><cmd>luafile $MYVIMRC<CR>", opts)
 
 -- Too dificult to press
 map("n", "gl", "$", opts)
