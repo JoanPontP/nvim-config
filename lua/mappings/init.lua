@@ -13,7 +13,7 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-map("n", "<leader>Ñ", "<cmd>so $MYVIMRC<CR><cmd>luafile $MYVIMRC<CR>", opts)
+map("n", "<leader>Ñ", ":so $MYVIMRC<CR>:luafile os.getenv('MYVIMRC')<CR>", opts)
 
 -- Too dificult to press
 map("n", "gl", "$", opts)
@@ -44,20 +44,21 @@ map("i", "jk", "<ESC>", opts)
 map("i", "jj", "<ESC>", opts)
 map("i", "jk", "<ESC>", opts)
 
--- Visual --
+-- Visual
 -- Stay in indent mode
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
+-- Too dificult to press
+map("v", "gl", "$", opts)
+map("v", "gh", "^", opts)
 -- Move text up and down
-map("v", "<C-j>", ":m .+1<CR>gv-gv==", opts)
-map("v", "<C-k>", ":m .-2<CR>gv-gv==", opts)
 map("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-map("x", "K", ":move '<-2<CR>gv-gv", opts)
-map("x", "J", ":move '>+1<CR>gv-gv", opts)
+map("x", "J", ":move '>+1<CR>==gv-gv", opts)
+map("x", "K", ":move '<-2<CR>==gv-gv", opts)
 
 -- Plugins
 map('n', '<leader>gf', ':NvimTreeToggle<CR>', opts)
@@ -100,6 +101,6 @@ map('n', '<C-q>', ':bd<CR>', opts)
 --map('n', '<leader>bl', ':BufferOrderByLanguage<CR>', opts)
 
 -- Telescope
-map('n', '<Leader>ff', ':Telescope find_files<CR>', opts)
-map('n', '<Leader>fg', ':Telescope live_grep<CR>', opts)
-map('n', '<Leader>fb', ':Telescope buffers<CR>', opts)
+map('n', '<Leader>ff', '<cmd>lua require("telescope.builtin").find_files({hidden=true,no_ignore=true})<CR>', opts)
+map('n', '<Leader>fg', '<cmd>lua require("telescope.builtin").live_grep({hidden=true,no_ignore=true})<CR>', opts)
+map('n', '<Leader>fb', '<cmd>lua require("telescope.builtin").buffers({})<CR>', opts)

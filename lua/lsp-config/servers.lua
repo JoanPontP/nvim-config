@@ -11,5 +11,6 @@ return {
   'cssls',
   'dockerls',
   'yamlls',
-  'jsonls'
+  'jsonls',
+  'ansiblels'
 }
