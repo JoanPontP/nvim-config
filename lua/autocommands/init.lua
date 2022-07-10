@@ -24,17 +24,17 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- set wrap and spell in md and gitcommit
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "gitcommit", "markdown", "yaml", "yml" },
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = { "gitcommit", "markdown", "yaml", "yml" },
+--   callback = function()
+--     vim.opt_local.wrap = true
+--     vim.opt_local.spell = true
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
-		vim.highlight.on_yank({higroup="DiffAdd", timeout=100})
+		vim.highlight.on_yank({higroup="Sneak", timeout=100})
 	end,
 	desc = "Highlight on yank",
 })
