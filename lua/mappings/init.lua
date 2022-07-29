@@ -13,7 +13,29 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- netrw config
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+vim.g.netrw_liststyle = 3
+
 map("n", "<leader>Ñ", ":so $MYVIMRC<CR>:luafile os.getenv('MYVIMRC')<CR>", opts)
+map("n", "<leader>gf", "<cmd>Ex<CR>", opts)
+
+-- search throught history
+map("n", "q:", "q:?", opts)
+map("n", "q/", "q/?", opts)
+
+-- project search
+map("n", "<leader>co", "<cmd>copen<CR>", opts)
+map("n", "<Down>", "<cmd>cnext<CR>zz", opts)
+map("n", "<Up>", "<cmd>cprev<CR>zz", opts)
+map("n", "<leader>vg", ":vimgrep /<C-r><C-w>/gj **/*<Left><Left><Left><Left><Left><Left><Left><Left>", { noremap = true, silent = false })
+-- map("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
+-- map("n", "<leader>j", "<cmd>lprev<CR>zz", opts)
+
+map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", opts)
+map("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
 
 -- Too dificult to press
 map("n", "gl", "$", opts)
@@ -28,6 +50,9 @@ map("n", "N", "Nzzzv", opts)
 -- map("n", "<C-j>", "<C-w>j", opts)
 -- map("n", "<C-k>", "<C-w>k", opts)
 -- map("n", "<C-l>", "<C-w>l", opts)
+
+map("n", "<C-u>", "<C-u>zz", opts)
+map("n", "<C-d>", "<C-d>zz", opts)
 
 -- Resize with arrows
 map("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -53,16 +78,18 @@ map("v", ">", ">gv", opts)
 map("v", "gl", "$", opts)
 map("v", "gh", "^", opts)
 -- Move text up and down
+map("v", "<C-k>", ":m .-2<CR>gv-gv==", opts)
+map("v", "<C-j>", ":m .+1<CR>gv-gv==", opts)
 map("v", "p", '"_dP', opts)
 
 -- Visual Block --
--- Move text up and down
 map("x", "J", ":move '>+1<CR>==gv-gv", opts)
 map("x", "K", ":move '<-2<CR>==gv-gv", opts)
+-- Move text up and down
 
 -- Plugins
-map('n', '<leader>gf', ':NvimTreeToggle<CR>', opts)
-map('n', '<leader>c', ':NvimTreeFindFile<CR>', opts)
+-- map('n', '<leader>gf', ':NvimTreeToggle<CR>', opts)
+-- map('n', '<leader>c', ':NvimTreeFindFile<CR>', opts)
 
 -- barbar mappings
 -- Move to previous/next

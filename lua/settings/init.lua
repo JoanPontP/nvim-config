@@ -40,3 +40,4 @@ set.tabstop=4                            -- insert 2 spaces for a tab
 set.shiftwidth=4                         -- the number of spaces inserted for each indentation
 set.softtabstop=4                        -- indentation of < and >
 set.expandtab=true                       -- convert tabs to spaces
+

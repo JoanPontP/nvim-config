@@ -13,6 +13,7 @@ require'nvim-treesitter.configs'.setup {
     'dockerfile',
     'javascript',
     'php',
+    'go',
   },
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
