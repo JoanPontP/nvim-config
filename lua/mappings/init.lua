@@ -1,4 +1,4 @@
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- Modes
@@ -22,15 +22,15 @@ vim.g.netrw_liststyle = 3
 map("n", "<leader>Ñ", ":so $MYVIMRC<CR>:luafile os.getenv('MYVIMRC')<CR>", opts)
 map("n", "<leader>gf", "<cmd>Ex<CR>", opts)
 
--- search throught history
+-- search through history
 map("n", "q:", "q:?", opts)
 map("n", "q/", "q/?", opts)
 
--- project search
-map("n", "<leader>co", "<cmd>copen<CR>", opts)
-map("n", "<Down>", "<cmd>cnext<CR>zz", opts)
-map("n", "<Up>", "<cmd>cprev<CR>zz", opts)
-map("n", "<leader>vg", ":vimgrep /<C-r><C-w>/gj **/*<Left><Left><Left><Left><Left><Left><Left><Left>", { noremap = true, silent = false })
+-- project search mappings
+map("n", "<leader>lo", "<cmd>lopen<CR>", opts)
+map("n", "<Down>", "<cmd>lnext<CR>zz", opts)
+map("n", "<Up>", "<cmd>lprev<CR>zz", opts)
+map("n", "<leader>lg", ":lvimgrep /<C-r><C-w>/gj **/*<Left><Left><Left><Left><Left><Left><Left><Left>", { noremap = true, silent = false })
 -- map("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
 -- map("n", "<leader>j", "<cmd>lprev<CR>zz", opts)
 
@@ -126,6 +126,7 @@ map('n', '<C-q>', ':bd<CR>', opts)
 --map('n', '<leader>bb', ':BufferOrderByBufferNumber<CR>', opts)
 --map('n', '<leader>bd', ':BufferOrderByDirectory<CR>', opts)
 --map('n', '<leader>bl', ':BufferOrderByLanguage<CR>', opts)
+
 
 -- Telescope
 map('n', '<Leader>ff', '<cmd>lua require("telescope.builtin").find_files({hidden=true,no_ignore=true})<CR>', opts)

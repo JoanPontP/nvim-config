@@ -41,13 +41,15 @@ return packer.startup(function(use)
     use 'windwp/nvim-autopairs' -- Autopairs, integrates with both cmp and treesitter
     use 'kyazdani42/nvim-web-devicons'
     use 'nvim-lualine/lualine.nvim'
+
     -- use 'romgrk/barbar.nvim'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'JoosepAlviste/nvim-ts-context-commentstring'
     use 'nvim-telescope/telescope.nvim'
-    use 'lewis6991/gitsigns.nvim'
     use 'terrortylor/nvim-comment'
+    use 'lewis6991/gitsigns.nvim'
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
 -- LSP Configs
     use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
