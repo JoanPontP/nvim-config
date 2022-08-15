@@ -19,6 +19,7 @@ null_ls.setup({
         formatting.phpcsfixer.with({ extra_args = { "--no-interacction", "--quiet", "fix", "$FILENAME" } }),
         formatting.rustfmt.with({ extra_args = { "--emit=stdout" } }),
         formatting.beautysh.with({ extra_args = { "$FILENAME" } }),
+        diagnostics.phpmd.with({ extra_args = { "$FILENAME", "json" } }),
         diagnostics.luacheck.with({ extra_args = { "--formatter", "plain", "--codes", "--ranges", "--filename", "$FILENAME", "-" } }),
         diagnostics.zsh.with({ extra_args = { "-n", "$FILENAME" } }),
         diagnostics.yamllint.with({ extra_args = { "--format", "parsable", "-" } }),
@@ -26,7 +27,7 @@ null_ls.setup({
         diagnostics.psalm.with({ extra_args = { "--output-format=json", "--no-progress", "$FILENAME" } }),
         diagnostics.php.with({ extra_args = { "-l", "-d", "display_errors=STDERR", "-d", " log_errors=Off" } }),
         diagnostics.shellcheck.with({ extra_args = { "-format", "json1", "--sorurce-path=$DIRNAME", "--external-sources", "-" } }),
-        diagnostics.ansiblelint.with({ extra_args = { "-f", "codeclimate", "-q", "--nocolor", "$FILENAME" } }),
+        diagnostics.ansiblelint
         -- diagnostics.flake8
     },
 })
