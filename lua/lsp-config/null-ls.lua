@@ -16,7 +16,7 @@ null_ls.setup({
         -- formatting.stylua,
         -- formatting.lua_format.with({ extra_args = { "-i" } }),
         -- formatting.eslint_d.with({extra_args={"--fix-to-stdout", "--stdin", "--stdin-filename", "$FILENAME"}}),
-        formatting.phpcsfixer.with({ extra_args = { "--no-interacction", "--quiet", "fix", "$FILENAME" } }),
+        formatting.phpcsfixer,
         formatting.rustfmt.with({ extra_args = { "--emit=stdout" } }),
         formatting.beautysh.with({ extra_args = { "$FILENAME" } }),
         diagnostics.phpmd.with({ extra_args = { "$FILENAME", "json" } }),
