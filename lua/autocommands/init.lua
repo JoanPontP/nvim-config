@@ -1,8 +1,8 @@
 -- improve indentation in those files
-local groupname = "indentation"
-vim.api.nvim_create_augroup(groupname, { clear = true })
+local indentationGrp = "indentation"
+vim.api.nvim_create_augroup(indentationGrp, { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-    group = groupname,
+    group = indentationGrp,
     pattern = {
         "json",
         "yaml",

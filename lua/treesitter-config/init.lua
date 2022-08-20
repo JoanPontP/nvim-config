@@ -1,4 +1,4 @@
-require 'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
     ensure_installed = {
         'python',
@@ -23,6 +23,28 @@ require 'nvim-treesitter.configs'.setup {
     },
     autopairs = {
         enable = true,
+    },
+    autotag = {
+        enable = true,
+        filetypes = {
+            'html.twig',
+            'html',
+            'javascript',
+            'typescript',
+            'javascriptreact',
+            'typescriptreact',
+            'svelte',
+            'vue',
+            'tsx',
+            'jsx',
+            'rescript',
+            'xml',
+            'php',
+            'markdown',
+            'glimmer',
+            'handlebars',
+            'hbs',
+        },
     },
     indent = {
         enable = false, -- Really breaks stuff if true
@@ -58,7 +80,7 @@ vim.cmd([[
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.twig = {
     install_info = {
-        url = "eirabben/tree-sitter-twig",
+        url = "https://github.com/eirabben/tree-sitter-twig",
         files = { "src/parser.c", "src/scanner.cc" },
         branch = "main",
     },

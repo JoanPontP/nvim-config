@@ -10,8 +10,12 @@ local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
     debug = false,
+    on_attach = require("lsp-config.handlers").on_attach,
     sources = {
-        formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+        formatting.prettier.with({
+            extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+            extra_filetypes = { "twig" },
+        }),
         formatting.black.with({ extra_args = { "--fast" } }),
         -- formatting.stylua,
         -- formatting.lua_format.with({ extra_args = { "-i" } }),
