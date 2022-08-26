@@ -1,6 +1,16 @@
 return {
     init_options = {
-        ["language_server_phpstan.enabled"] = true,
-        ["language_server_psalm.enabled"] = true,
+        behat = {
+            enabled = true,
+            symfony = {
+                di_xml_path = "app/config/services.yml"
+            }
+        },
+        language_server_psalm = {
+            enabled = true,
+        },
+        language_server_phpstan = {
+            enabled = true,
+        }
     }
 }

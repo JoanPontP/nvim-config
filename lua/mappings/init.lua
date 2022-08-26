@@ -19,7 +19,7 @@ vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 vim.g.netrw_liststyle = 3
 
-map("n", "<leader>gf", "<cmd>Ex<CR>", opts)
+-- map("n", "<leader>gf", "<cmd>Ex<CR>", opts)
 
 -- search through history
 map("n", "q:", "q:?", opts)
@@ -69,6 +69,8 @@ map("i", "jj", "<ESC>", opts)
 map("i", "jk", "<ESC>", opts)
 
 -- Visual
+--
+-- map("v", "<leader>lg", ":lvimgrep /<C-r><c-a>/gj **/*<Left><Left><Left><Left><Left><Left><Left><Left>", { noremap = true, silent = false })
 -- Stay in indent mode
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
@@ -87,8 +89,8 @@ map("x", "K", ":move '<-2<CR>==gv-gv", opts)
 -- Move text up and down
 
 -- Plugins
--- map('n', '<leader>gf', ':NvimTreeToggle<CR>', opts)
--- map('n', '<leader>c', ':NvimTreeFindFile<CR>', opts)
+map('n', '<leader>tt', ':NvimTreeToggle<CR>', opts)
+map('n', '<leader>tf', ':NvimTreeFindFile<CR>', opts)
 
 -- barbar mappings
 -- Move to previous/next
@@ -130,4 +132,5 @@ map('n', '<C-q>', ':bd<CR>', opts)
 -- Telescope
 map('n', '<Leader>ff', '<cmd>lua require("telescope.builtin").find_files({hidden=true,no_ignore=true})<CR>', opts)
 map('n', '<Leader>fg', '<cmd>lua require("telescope.builtin").live_grep({hidden=true,no_ignore=true})<CR>', opts)
+map('n', '<Leader>gs', '<cmd>lua require("telescope.builtin").grep_string({hidden=true,no_ignore=true})<CR>', opts)
 map('n', '<Leader>fb', '<cmd>lua require("telescope.builtin").buffers({})<CR>', opts)
