@@ -84,9 +84,19 @@ telescope.setup {
         -- }
         -- Now the picker_config_key will be applied every time you call this
         -- builtin picker
+        lsp_implementations = {
+            show_line = false,
+            fname_width = 150,
+        },
+        lsp_definition = {
+            show_line = false,
+            fname_width = 150,
+        },
         lsp_references = {
             include_current_line = false,
-            include_declaration = false
+            include_declaration = false,
+            show_line = false,
+            fname_width = 150,
         }
     },
     extensions = {

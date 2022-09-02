@@ -46,6 +46,7 @@ return packer.startup(function(use)
     -- use 'romgrk/barbar.nvim'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'windwp/nvim-ts-autotag'
+    use 'nvim-treesitter/nvim-treesitter-context'
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'JoosepAlviste/nvim-ts-context-commentstring'
     use 'nvim-telescope/telescope.nvim'

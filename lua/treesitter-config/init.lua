@@ -86,3 +86,5 @@ parser_config.twig = {
     },
     filetype = "twig",
 }
+
+local tsContext = require('treesitter-context').setup({})
