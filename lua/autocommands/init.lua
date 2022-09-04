@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
-        vim.highlight.on_yank({ higroup = "Sneak", timeout = 100 })
+        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
     end,
     desc = "Highlight on yank",
 })
