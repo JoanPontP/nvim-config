@@ -81,12 +81,12 @@ local function lsp_keymaps(bufnr)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-    local AutoFormattingGrp = vim.api.nvim_create_augroup("autoformating", { clear = true })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-        group = AutoFormattingGrp,
-        command = ":lua vim.lsp.buf.formatting_seq_sync()",
-        buffer = bufnr,
-    })
+    -- local AutoFormattingGrp = vim.api.nvim_create_augroup("autoformating", { clear = true })
+    -- vim.api.nvim_create_autocmd("BufWritePre", {
+    --     group = AutoFormattingGrp,
+    --     command = ":lua vim.lsp.buf.formatting_seq_sync()",
+    --     buffer = bufnr,
+    -- })
 end
 
 M.on_attach = function(client, bufnr)
