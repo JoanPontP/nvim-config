@@ -71,6 +71,4 @@ return packer.startup(function(use)
     use 'onsails/lspkind-nvim'
     use 'tamago324/nlsp-settings.nvim' -- language server settings defined in json for
     use 'rafamadriz/friendly-snippets'
-    use 'qbbr/vim-symfony'
-    use 'qbbr/vim-twig'
 end)

@@ -5,6 +5,8 @@ local lspkind = require('lspkind')
 local cmp = require('cmp')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local handlers = require('nvim-autopairs.completion.handlers')
+local friendlySnippets = require("luasnip/loaders/from_vscode").lazy_load();
+
 
 cmp.setup {
     snippet = {
