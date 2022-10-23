@@ -35,7 +35,7 @@ return packer.startup(function(use)
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'Mofiqul/dracula.nvim'
-    use 'EdenEast/nightfox.nvim'
+    use 'catppuccin/nvim'
     use 'folke/tokyonight.nvim'
     use 'nelsyeung/twig.vim'
     use 'kyazdani42/nvim-tree.lua'
@@ -56,7 +56,8 @@ return packer.startup(function(use)
 
     -- LSP Configs
     use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
-    use 'williamboman/nvim-lsp-installer'
+    -- use 'williamboman/nvim-lsp-installer'
+    use 'williamboman/mason.nvim'
     use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
     use 'hrsh7th/cmp-path' -- completion for path
     use 'hrsh7th/cmp-buffer' -- completion from buffer
