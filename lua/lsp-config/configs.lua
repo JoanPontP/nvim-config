@@ -3,22 +3,20 @@ if not status_ok then
     return
 end
 
-local lspconfig = require("lspconfig")
+local status_ok_2, mason_config = pcall(require, "mason-lspconfig")
+if not status_ok_2 then
+    return
+end
+
+mason.setup();
 
 local servers = require("lsp-config.servers")
--- local lsp_signature = require("lsp_signature")
 
-mason.setup {
+mason_config.setup({
     ensure_installed = servers
-}
+});
 
--- lsp_signature.setup {
---   bind = true,
---   handler_opts = {
---     border = "rounded",
---   },
--- }
-
+local lspconfig = require("lspconfig")
 
 for _, server in pairs(servers) do
     local opts = {

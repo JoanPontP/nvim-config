@@ -1,11 +1,16 @@
 -- luasnip setup
 local luasnip = require('luasnip')
 local lspkind = require('lspkind')
+luasnip.setup({
+    history = false,
+    delete_check_events = "TextChanged"
+});
 -- nvim-cmp setup
 local cmp = require('cmp')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local handlers = require('nvim-autopairs.completion.handlers')
 local friendlySnippets = require("luasnip/loaders/from_vscode").lazy_load();
+
 
 
 cmp.setup {

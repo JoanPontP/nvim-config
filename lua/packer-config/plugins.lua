@@ -55,9 +55,12 @@ return packer.startup(function(use)
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
     -- LSP Configs
-    use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
     -- use 'williamboman/nvim-lsp-installer'
-    use 'williamboman/mason.nvim'
+    use {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
+    }
     use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
     use 'hrsh7th/cmp-path' -- completion for path
     use 'hrsh7th/cmp-buffer' -- completion from buffer
