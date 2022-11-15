@@ -27,7 +27,6 @@ require('nvim-treesitter.configs').setup {
     autotag = {
         enable = true,
         filetypes = {
-            'html.twig',
             'html',
             'javascript',
             'typescript',
@@ -76,15 +75,5 @@ vim.cmd([[
   set foldmethod=expr
   set foldexpr=nvim_treesitter#foldexpr()
 ]])
-
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-parser_config.twig = {
-    install_info = {
-        url = "https://github.com/eirabben/tree-sitter-twig",
-        files = { "src/parser.c", "src/scanner.cc" },
-        branch = "main",
-    },
-    filetype = "twig",
-}
 
 local tsContext = require('treesitter-context').setup({})
