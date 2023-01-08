@@ -78,10 +78,13 @@ map("v", ">", ">gv", opts)
 -- Too dificult to press
 map("v", "gl", "$", opts)
 map("v", "gh", "^", opts)
+
 -- Move text up and down
 map("v", "<C-k>", ":m .-2<CR>gv-gv==", opts)
 map("v", "<C-j>", ":m .+1<CR>gv-gv==", opts)
-map("v", "p", '"_dP', opts)
+
+-- don't override default register
+map("v", "<leader>p", '"_dP', opts)
 
 -- Visual Block --
 map("x", "J", ":move '>+1<CR>==gv-gv", opts)
@@ -89,7 +92,7 @@ map("x", "K", ":move '<-2<CR>==gv-gv", opts)
 -- Move text up and down
 
 -- Plugins
-map('n', '<leader>tt', ':NvimTreeToggle<CR>', opts)
+map('n', '<leader>tv', ':NvimTreeToggle<CR>', opts)
 map('n', '<leader>tf', ':NvimTreeFindFile<CR>', opts)
 
 -- barbar mappings
@@ -130,7 +133,8 @@ map('n', '<C-q>', ':bd<CR>', opts)
 
 
 -- Telescope
-map('n', '<Leader>ff', '<cmd>lua require("telescope.builtin").find_files({hidden=true,no_ignore=true})<CR>', opts)
-map('n', '<Leader>fg', '<cmd>lua require("telescope.builtin").live_grep({hidden=true,no_ignore=true})<CR>', opts)
+map('n', '<Leader>pf', '<cmd>lua require("telescope.builtin").find_files({hidden=true,no_ignore=true})<CR>', opts)
+map('n', '<Leader>pg', '<cmd>lua require("telescope.builtin").git_files({hidden=true,no_ignore=true})<CR>', opts)
+map('n', '<Leader>pt', '<cmd>lua require("telescope.builtin").live_grep({hidden=true,no_ignore=true})<CR>', opts)
 map('n', '<Leader>gs', '<cmd>lua require("telescope.builtin").grep_string({hidden=true,no_ignore=true})<CR>', opts)
 map('n', '<Leader>fb', '<cmd>lua require("telescope.builtin").buffers({})<CR>', opts)
