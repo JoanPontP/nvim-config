@@ -75,5 +75,5 @@ vim.cmd([[
   set foldmethod=expr
   set foldexpr=nvim_treesitter#foldexpr()
 ]])
-
-local tsContext = require('treesitter-context').setup({})
+-- usefful but consumes a lot
+-- local tsContext = require('treesitter-context').setup({})

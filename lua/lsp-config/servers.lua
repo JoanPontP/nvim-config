@@ -2,7 +2,7 @@ return {
     'pyright',
     'rust_analyzer',
     'tsserver',
-    'sumneko_lua',
+    'lua_ls',
     'html',
     'bashls',
     'psalm',
