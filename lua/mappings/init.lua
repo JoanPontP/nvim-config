@@ -17,7 +17,7 @@ vim.g.maplocalleader = " "
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
-vim.g.netrw_liststyle = 3
+-- vim.g.netrw_liststyle = 3
 
 -- map("n", "<leader>gf", "<cmd>Ex<CR>", opts)
 
@@ -92,8 +92,8 @@ map("x", "K", ":move '<-2<CR>==gv-gv", opts)
 -- Move text up and down
 
 -- Plugins
-map('n', '<leader>tv', ':NvimTreeToggle<CR>', opts)
-map('n', '<leader>tf', ':NvimTreeFindFile<CR>', opts)
+-- map('n', '<leader>tv', ':NvimTreeToggle<CR>', opts)
+-- map('n', '<leader>tf', ':NvimTreeFindFile<CR>', opts)
 
 -- barbar mappings
 -- Move to previous/next
